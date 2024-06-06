@@ -1,4 +1,41 @@
 {
+  "calculation_train": {
+    "file_name": "calculation_train.json"
+  },
+  "metamath_all_0508": {
+    "file_name": "metamath_all_0508.json"
+  },
+  "assist_hint_summary": {
+    "file_name": "assist_hint_summary.json"
+  },
+  "step_calculation_all": {
+    "file_name": "step_calculation_all.json"
+  },
+  "step_no_calculation_all": {
+    "file_name": "step_no_calculation_all.json"
+  },
+  "step_dpo_05_3": {
+    "file_name": "step_dpo_05_3.json",
+    "ranking": true
+  },
+  "metamath_hint_0508": {
+    "file_name": "metamath_hint_0508.json"
+  },
+  "metamath_all_0322": {
+    "file_name": "metamath_all_0322.json"
+  },
+  "calculation_mark": {
+    "file_name": "calculation_mark.json"
+  },
+  "metamathQA": {
+    "file_name": "metamathQA_parsed.jsonl"
+  },
+  "metamath_hint_0326": {
+    "file_name": "metamath_hint_0326.json"
+  },
+  "metamath_step_0326": {
+    "file_name": "metamath_step_0326.json"
+  },
   "alpaca_en": {
     "file_name": "alpaca_data_en_52k.json",
     "file_sha1": "607f94a7f581341e59685aef32f531095232cf23"
@@ -318,7 +355,7 @@
     "ms_hub_url": "AI-ModelScope/RLAIF-Nectar",
     "ranking": true
   },
-  "orca_dpo_de" : {
+  "orca_dpo_de": {
     "hf_hub_url": "mayflowergmbh/intel_orca_dpo_pairs_de",
     "ranking": true
   },
@@ -391,5 +428,59 @@
       "prompt": "content"
     },
     "folder": "python"
+  },
+  "arithmetics_add_100000_5_fix_cot": {
+    "file_name": "arithmetics_add_100000_5_fix_cot.jsonl"
+  },
+  "arithmetics_add_100000_5_fix_direct": {
+    "file_name": "arithmetics_add_100000_5_fix_direct.jsonl"
+  },
+  "arithmetics_add_300000_6_fix_cot": {
+    "file_name": "arithmetics_add_300000_6_fix_cot.jsonl"
+  },
+  "arithmetics_add_300000_6_fix_direct": {
+    "file_name": "arithmetics_add_300000_6_fix_direct.jsonl"
+  },
+  "arithmetics_add_200000_5_fix_cot": {
+    "file_name": "arithmetics_add_200000_5_fix_cot.jsonl"
+  },
+  "arithmetics_add_200000_5_fix_direct": {
+    "file_name": "arithmetics_add_200000_5_fix_direct.jsonl"
+  },
+  "arithmetics_add_500000_10_fix_cot": {
+    "file_name": "arithmetics_add_500000_10_fix_cot.jsonl"
+  },
+  "arithmetics_add_500000_10_fix_direct": {
+    "file_name": "arithmetics_add_500000_10_fix_direct.jsonl"
+  },
+  "arithmetics_add_500000_7_fix_cot": {
+    "file_name": "arithmetics_add_500000_7_fix_cot.jsonl"
+  },
+  "arithmetics_add_500000_7_fix_direct": {
+    "file_name": "arithmetics_add_500000_7_fix_direct.jsonl"
+  },
+  "arithmetics_mul_300000_5_fix_cot": {
+    "file_name": "arithmetics_mul_300000_5_fix_cot.jsonl"
+  },
+  "arithmetics_mul_300000_5_fix_direct": {
+    "file_name": "arithmetics_mul_300000_5_fix_direct.jsonl"
+  },
+  "arithmetics_mul_500000_10_fix_cot": {
+    "file_name": "arithmetics_mul_500000_10_fix_cot.jsonl"
+  },
+  "arithmetics_mul_500000_10_fix_direct": {
+    "file_name": "arithmetics_mul_500000_10_fix_direct.jsonl"
+  },
+  "arithmetics_mul_500000_7_fix_cot": {
+    "file_name": "arithmetics_mul_500000_7_fix_cot.jsonl"
+  },
+  "arithmetics_mul_500000_7_fix_direct": {
+    "file_name": "arithmetics_mul_500000_7_fix_direct.jsonl"
+  },
+  "arithmetics_mul_100000_3_fix_cot": {
+    "file_name": "arithmetics_mul_100000_3_fix_cot.jsonl"
+  },
+  "arithmetics_mul_100000_3_fix_direct": {
+    "file_name": "arithmetics_mul_100000_3_fix_direct.jsonl"
   }
 }

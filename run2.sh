@@ -1,0 +1,2 @@
+bash run_meta_phi_uni_3_cov.sh cov_base_48_001_23 42
+bash run_meta_phi_uni_3_cov.sh cov_base_48_001_23 1234

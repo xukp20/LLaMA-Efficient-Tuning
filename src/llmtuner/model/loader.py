@@ -67,10 +67,27 @@ def load_model(
     Loads pretrained model. Must after load_tokenizer.
     """
     init_kwargs = _get_init_kwargs(model_args)
-    config = AutoConfig.from_pretrained(model_args.model_name_or_path, **init_kwargs)
-    patch_config(config, tokenizer, model_args, init_kwargs, is_trainable)
+
+    import os
+    if os.getenv("CUSTOM_MODEL_PATH") is None:
+        config = AutoConfig.from_pretrained(model_args.model_name_or_path, **init_kwargs)
 
     model = None
+
+    # 0419, xukp, load my model from outside interface
+    # if env set CUSTOM_MODEL_PATH, load the model from the path
+    if os.getenv("CUSTOM_MODEL_PATH") is not None:
+        import sys
+        sys.path.append(os.path.dirname(os.getenv("CUSTOM_MODEL_PATH")))
+        filename = os.path.basename(os.getenv("CUSTOM_MODEL_PATH"))
+        # import load_custom_model from the file
+        from importlib import import_module
+        module_name = os.path.splitext(filename)[0]
+        module = import_module(module_name)
+        load_custom_model = getattr(module, "load_custom_model")
+        model, config = load_custom_model()
+        logger.info("Loaded custom model from {}".format(os.getenv("CUSTOM_MODEL_PATH")))
+        
     if is_trainable and model_args.use_unsloth:
         from unsloth import FastLanguageModel  # type: ignore
 
@@ -94,6 +111,8 @@ def load_model(
         if model_args.adapter_name_or_path:
             model_args.adapter_name_or_path = None
             logger.warning("Unsloth does not support loading adapters.")
+
+    patch_config(config, tokenizer, model_args, init_kwargs, is_trainable)
 
     if model is None:
         init_kwargs["config"] = config

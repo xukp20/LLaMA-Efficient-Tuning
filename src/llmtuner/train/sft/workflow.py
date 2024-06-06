@@ -60,6 +60,15 @@ def run_sft(
         **split_dataset(dataset, data_args, training_args),
     )
 
+    # 0514 all wandb callback for multi loss
+    import os
+    if os.environ.get("WANDB_EVAL_CALLBACK", None) is not None:
+        import sys, importlib
+        path = "/cephfs/xukangping/code/experiments/loop/tools/wandb_callback.py"
+        sys.path.append(os.path.dirname(path))
+        from wandb_callback import WandbMultiEvalLossCallback
+        trainer.add_callback(WandbMultiEvalLossCallback(trainer, trainer.eval_dataset))
+
     # Keyword arguments for `model.generate`
     gen_kwargs = generating_args.to_dict()
     gen_kwargs["eos_token_id"] = [tokenizer.eos_token_id] + tokenizer.additional_special_tokens_ids
